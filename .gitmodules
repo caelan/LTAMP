@@ -1,0 +1,6 @@
+[submodule "pddlstream"]
+	path = pddlstream
+	url = https://github.com/caelan/pddlstream
+[submodule "ss-pybullet"]
+	path = ss-pybullet
+	url = https://github.com/caelan/ss-pybullet

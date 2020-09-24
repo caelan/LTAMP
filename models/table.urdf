@@ -1,0 +1,151 @@
+<?xml version="0.0" ?>
+<robot name="table.urdf">
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value="1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+  </link>
+
+  <link name="top_surface">
+    <contact>
+      <lateral_friction value="1"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value="1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+			<box size="0.6 1.2 0.04"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <!--origin rpy="0 0 0" xyz="0 0 0"/-->
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <geometry>
+	 	   <box size="0.6 1.2 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="back_left_leg">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value="1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="back_right_leg">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value="1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_left_leg">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value="1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_right_leg">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+       <mass value="1"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_link_to_top_surface" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_surface"/>
+    <origin xyz="0 0 -0.02"/>
+  </joint>
+
+  <joint name="top_surface_to_back_left_leg" type="fixed">
+    <parent link="top_surface"/>
+    <child link="back_left_leg"/>
+    <origin xyz="-0.25 0.55 -0.37"/>
+  </joint>
+
+  <joint name="top_surface_to_back_right_leg" type="fixed">
+    <parent link="top_surface"/>
+    <child link="back_right_leg"/>
+    <origin xyz="-0.25 -0.55 -0.37"/>
+  </joint>
+
+  <joint name="top_surface_to_front_left_leg" type="fixed">
+    <parent link="top_surface"/>
+    <child link="front_left_leg"/>
+    <origin xyz="0.25 0.55 -0.37"/>
+  </joint>
+
+  <joint name="top_surface_to_front_right_leg" type="fixed">
+    <parent link="top_surface"/>
+    <child link="front_right_leg"/>
+    <origin xyz="0.25 -0.55 -0.37"/>
+  </joint>
+</robot>
+

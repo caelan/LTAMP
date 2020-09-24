@@ -1,0 +1,18 @@
+<?xml version="0.0"?>
+<robot name="tray">
+  <link name="base">
+    <visual>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+      <geometry>
+        <box size="0.2 0.2 0.02" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.2 0.2 0.02" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

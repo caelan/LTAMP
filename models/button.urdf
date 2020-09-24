@@ -1,0 +1,24 @@
+<?xml version="0.0"?>
+<robot name="button">
+  <link name="base">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.0005"/>
+      <!--origin rpy="0 0 0" xyz="0 0 0.0025"/-->
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.05 0.05 0.001" />
+        <!--box size="0.05 0.05 0.005" /-->
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.0005"/>
+      <!--origin rpy="0 0 0" xyz="0 0 0.0025"/-->
+      <geometry>
+        <box size="0.05 0.05 0.001" />
+        <!--box size="0.05 0.05 0.005" /-->
+      </geometry>
+    </collision>
+  </link>
+</robot>

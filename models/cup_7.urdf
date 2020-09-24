@@ -1,0 +1,31 @@
+<?xml version="0.0" ?>
+<robot name="cup_7.urdf">
+  <link name="baseLink">
+    <contact>
+      <lateral_friction value="1.0"/>
+      <inertia_scaling value="3.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.02"/>
+       <mass value="90.5"/>
+       <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+				<mesh filename="Cup/textured-0008192.obj" scale="1.4857 1.4857 0.5964"/>
+      </geometry>
+       <material name="white">
+        <!--color rgba="1 1 1 0.1"/-->
+        <color rgba="1 1 1 0.5"/> <!-- @lagrassa: can we ensure the cup is somewhat visible? -->
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+	 	<mesh filename="Cup/cup_vhacd.obj" scale="1.4857 1.4857 0.5964"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
+

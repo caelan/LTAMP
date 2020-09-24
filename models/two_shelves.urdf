@@ -1,0 +1,133 @@
+<?xml version=".0"?>
+<robot name="two_shelves">
+  <link name="base"></link>
+  <!-- 0.61 x 0.30 x 0.505, 0.017 thick, from bottom up: 0.257, 0.262 -->
+
+  <link name="shelf1">
+    <visual>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.61 0.30 0.017" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.61 0.30 0.017" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_shelf1" type="fixed">
+    <parent link="base"/>
+    <child link="shelf1"/>
+    <origin xyz="0 0 0.0085"/>
+  </joint>
+
+  <link name="shelf2">
+    <visual>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.61 0.30 0.017" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.61 0.30 0.017" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_shelf2" type="fixed">
+    <parent link="base"/>
+    <child link="shelf2"/>
+    <origin xyz="0 0 0.2485"/>
+  </joint>
+
+  <link name="shelf3">
+    <visual>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.61 0.30 0.017" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.61 0.30 0.017" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_shelf3" type="fixed">
+    <parent link="base"/>
+    <child link="shelf3"/>
+    <!--origin xyz="0 0 0.4935"/-->
+    <origin xyz="0 0 0.4965"/>
+  </joint>
+
+  <link name="left_wall">
+    <visual>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.017 0.30 0.505" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.017 0.30 0.505" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="left_wall"/>
+    <origin xyz="-0.2965 0 0.2525"/>
+  </joint>
+
+  <link name="right_wall">
+    <visual>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.017 0.30 0.505" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.017 0.30 0.505" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="right_wall"/>
+    <origin xyz="0.2965 0 0.2525"/>
+  </joint>
+
+  <link name="back_wall">
+    <visual>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.61 0.017 0.505" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.61 0.017 0.505" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_back_wall" type="fixed">
+    <parent link="base"/>
+    <child link="back_wall"/>
+    <origin xyz="0 0.1415 0.2525"/>
+  </joint>
+
+</robot>

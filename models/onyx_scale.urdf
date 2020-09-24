@@ -1,0 +1,20 @@
+<?xml version="0.0"?>
+<robot name="onyx_scale">
+  <link name="base">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.0125"/>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+      <geometry>
+        <box size="0.2 0.2 0.025" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.0125"/>
+      <geometry>
+        <box size="0.2 0.2 0.025" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+<?xml version="0.0"?>
+<robot name="stirrer">
+  <link name="base">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+      <geometry>
+        <cylinder length="0.1" radius="0.005"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.005"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
