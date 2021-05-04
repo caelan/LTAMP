@@ -18,6 +18,7 @@ from perception_tools.common import get_body_urdf, get_type
 from plan_tools.retired.pr2_problems import HEAD_CONF, LEFT_ARM_CONF, STOVE_NAME, PLACEMAT_NAME, BUTTON_NAME, PROBLEMS
 from plan_tools.simulated_problems import STOVE_POSITION, BUTTON_POSITION, PLACEMAT_POSITION, TORSO_POSITION
 from plan_tools.ros_world import ROSWorld
+from plan_tools.common import TABLE
 from plan_tools.planner import plan_actions, PlanningWorld
 from plan_tools.samplers.grasp import get_grasp_attachment
 from plan_tools.visualization import draw_forward_reachability, step_plan, draw_names
@@ -53,7 +54,7 @@ def get_input(message, options):
 def add_table_surfaces(world):
     table_pose = None
     for body_info in world.perception.surfaces:
-        if body_info.type == 'table':
+        if body_info.type == TABLE:
             table_pose = body_info.pose
     assert table_pose is not None
     initial_poses = {

@@ -19,7 +19,7 @@ np.set_printoptions(precision=3, threshold=3, edgeitems=1, suppress=True) #, lin
 from plan_tools.visualization import draw_forward_reachability, step_plan, draw_names
 from plan_tools.planner import plan_actions, PlanningWorld
 from plan_tools.common import set_seed, VIDEOS_DIRECTORY
-from plan_tools.simulated_problems import PROBLEMS
+from plan_tools.simulated_problems import PROBLEMS, test_pour
 from control_tools.execution import execute_plan
 from pybullet_tools.utils import wait_for_user, has_gui, VideoSaver
 from learn_tools.common import DATE_FORMAT
@@ -36,14 +36,15 @@ def main():
                         help='When enabled, executes the plan using physics simulation.')
     #parser.add_argument('-l', '--learning', action='store_true',
     #                    help='When enabled, uses learned generators when applicable.')
-    parser.add_argument('-p', '--problem', default='test_pour', choices=sorted(problem_fn_from_name),
+    parser.add_argument('-p', '--problem', default=test_pour.__name__,
+                        choices=sorted(problem_fn_from_name),
                         help='The name of the problem to solve.')
     parser.add_argument('-s', '--seed', default=None,
                         help='The random seed to use.')
     parser.add_argument('-v', '--visualize_planning', action='store_true',
                         help='When enabled, visualizes planning rather than the world (for debugging).')
-    parser.add_argument('-d', '--disable_visualizing_names', action='store_true',
-                        help='When enabled, disables visualizing names and forward reachability.')
+    parser.add_argument('-d', '--disable_drawing', action='store_true',
+                        help='When enabled, disables drawing names and forward reachability.')
     args = parser.parse_args()
 
     if args.seed is not None:
@@ -52,9 +53,10 @@ def main():
     problem_fn = problem_fn_from_name[args.problem]
     sim_world, task = problem_fn(visualize=not args.visualize_planning)
     #sim_world, task = problem_fn(visualize=False)
-    if not args.disable_visualizing_names:
+    if not args.disable_drawing:
         draw_names(sim_world)
         draw_forward_reachability(sim_world, task.arms)
+        wait_for_user()
 
     planning_world = PlanningWorld(task, visualize=args.visualize_planning)
     planning_world.load(sim_world)

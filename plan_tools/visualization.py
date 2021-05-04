@@ -1,12 +1,12 @@
 import numpy as np
 
-from pddlstream.utils import user_input
+from plan_tools.common import TABLE
 from plan_tools.samplers.generators import compute_forward_reachability
 from pybullet_tools.utils import ClientSaver, get_aabb, add_segments, wait_for_duration, \
     WorldSaver, user_input, add_text, PoseSaver, set_pose, unit_pose, draw_base_limits, \
     draw_circle, get_point, draw_pose, get_pose, wait_for_user
 
-DEBUG = False # TODO: make an argument
+DEBUG = True # TODO: make an argument
 
 MAX_VIS_DISTANCE = 2.5 # 5.
 MAX_REG_DISTANCE = 1.5
@@ -14,7 +14,7 @@ assert MAX_REG_DISTANCE <= MAX_VIS_DISTANCE
 
 def draw_forward_reachability(world, arms, grasp_type='top', color=(1, 0, 0)):
     for name, body in world.perception.sim_bodies.items():
-        if name.startswith('table'):
+        if name.startswith(TABLE):
             table = body
             break
     else:

@@ -14,7 +14,7 @@ from pybullet_tools.utils import ClientSaver, get_point, unit_quat, unit_pose, l
     HideOutput, stable_z, quat_from_euler, Euler, set_camera_pose, z_rotation, multiply, \
     get_quat, create_mesh, set_point, set_quat, set_pose, wait_for_user, \
     get_visual_data, read_obj, BASE_LINK, \
-    approximate_as_prism, Pose, draw_mesh, rectangular_mesh, apply_alpha
+    approximate_as_prism, Pose, draw_mesh, rectangular_mesh, apply_alpha, Point
 
 TABLE_NAME = create_name(TABLE, 1)
 
@@ -117,8 +117,8 @@ def test_block(visualize):
         #dump_body(world.perception.pr2)
     #block_y = 0.0
     block_y = -0.4
-    world.perception.set_pose(block_name, (0.6, block_y, block_z), unit_quat())
-    world.perception.set_pose(tray_name, (0.6, 0.4, tray_z), unit_quat())
+    world.perception.set_pose(block_name, Point(0.6, block_y, block_z), unit_quat())
+    world.perception.set_pose(tray_name, Point(0.6, 0.4, tray_z), unit_quat())
     update_world(world, table_body)
 
     init = [
@@ -184,15 +184,15 @@ def test_pour(visualize):
     #cup_name, bowl_name = 'cup_7', 'cup_8'
     #cup_name, bowl_name = 'cup_7-1', 'cup_7-2'
     #cup_name, bowl_name = get_name('bluecup', 1), get_name('bluecup', 2)
-    cup_name = create_name('blue3D_cup', 1) # bluecup | purple_cup | orange_cup | blue_cup | olive1_cup | blue3D_cup
+    cup_name = create_name('bluecup', 1) # bluecup | purple_cup | orange_cup | blue_cup | olive1_cup | blue3D_cup
     bowl_name = create_name('bowl', 1) # bowl | steel_bowl
 
     world, table_body = create_world([bowl_name, cup_name, bowl_name], visualize=visualize)
     with ClientSaver(world.perception.client):
         cup_z = stable_z(world.perception.sim_bodies[cup_name], table_body) + Z_EPSILON
         bowl_z = stable_z(world.perception.sim_bodies[bowl_name], table_body) + Z_EPSILON
-    world.perception.set_pose(cup_name, (0.6, 0.2, cup_z), unit_quat())
-    world.perception.set_pose(bowl_name, (0.6, 0.0, bowl_z), unit_quat())
+    world.perception.set_pose(cup_name, Point(0.6, 0.2, cup_z), unit_quat())
+    world.perception.set_pose(bowl_name, Point(0.6, 0.0, bowl_z), unit_quat())
     update_world(world, table_body)
 
     init = [
@@ -275,8 +275,8 @@ def test_clutter(visualize, num_blocks=5, num_beads=0):
 
     # TODO(lagrassa): first pose collides with the bowl
     xy_poses = [(0.6, -0.1), (0.5, -0.2), (0.6, 0.11), (0.45, 0.12), (0.5, 0.3), (0.7, 0.3)]
-    world.perception.set_pose(cup_name, (0.6, 0.2, cup_z), unit_quat())
-    world.perception.set_pose(bowl_name, (0.6, -0.1, bowl_z), unit_quat())
+    world.perception.set_pose(cup_name, Point(0.6, 0.2, cup_z), unit_quat())
+    world.perception.set_pose(bowl_name, Point(0.6, -0.1, bowl_z), unit_quat())
     #if 0 < num_beads:
     #    world.perception.add_beads(cup_name, num_beads, bead_radius=0.007, bead_mass=0.005)
     if block_z is not None:
@@ -610,8 +610,8 @@ def test_push_pour(visualize):
     with ClientSaver(world.perception.client):
         cup_z = stable_z(world.perception.sim_bodies[cup_name], table_body) + Z_EPSILON
         bowl_z = stable_z(world.perception.sim_bodies[bowl_name], table_body) + Z_EPSILON
-    world.perception.set_pose(cup_name, (0.75, 0.4, cup_z), unit_quat())
-    world.perception.set_pose(bowl_name, (0.5, -0.6, bowl_z), unit_quat())
+    world.perception.set_pose(cup_name, Point(0.75, 0.4, cup_z), unit_quat())
+    world.perception.set_pose(bowl_name, Point(0.5, -0.6, bowl_z), unit_quat())
     update_world(world, table_body)
 
     # TODO: can prevent the right arm from being able to pick
