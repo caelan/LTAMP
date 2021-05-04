@@ -9,7 +9,7 @@ from pddlstream.algorithms.constraints import PlanConstraints, WILD as X
 
 from perception_tools.common import create_name
 from learn_tools.collectors.common import INFEASIBLE, get_contained_beads, read_mass, stabilize, fill_with_beads, \
-    InitialRanges, create_table_bodies, randomize_dynamics, sample_norm, sample_bead_parameters
+    InitialRanges, create_table_bodies, randomize_dynamics, sample_norm, sample_bead_parameters, create_beads
 from plan_tools.samplers.grasp import hold_item
 from plan_tools.common import LEFT_ARM, GRIPPER_LINKS, COFFEE
 from learn_tools.learner import Collector, PLANNING_FAILURE, DYNAMICS, SKILL
@@ -177,7 +177,7 @@ def collect_stir(world, num_beads=100):
         init_holding = hold_item(world, arm, spoon_name)
         if init_holding is None:
             return INFEASIBLE
-        parameters_from_name = randomize_dynamics(world)
+        parameters_from_name = randomize_dynamics(world) # TODO: parameters_from_name['bead']
 
         _, (d, h) = approximate_as_cylinder(bowl_body)
         bowl_area = np.pi*(d/2.)**2
@@ -189,9 +189,8 @@ def collect_stir(world, num_beads=100):
         num_per_color = int(num_beads / len(bead_colors))
 
         # TODO: randomize bead physics
-        beads_per_color = [fill_with_beads(world, bowl_name, num_beads=num_per_color,
-                                           bead_radius=bead_radius, uniform_color=color)
-                           for color in bead_colors]
+        beads_per_color = [fill_with_beads(world, bowl_name, create_beads(
+            num_beads, bead_radius, uniform_color=color, parameters={})) for color in bead_colors]
         world.initial_beads.update({bead: bowl_body for beads in beads_per_color for bead in beads})
         if any(len(beads) != num_per_color for beads in beads_per_color):
             return INFEASIBLE

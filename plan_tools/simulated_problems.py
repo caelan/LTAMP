@@ -631,19 +631,25 @@ def test_push_pour(visualize):
 
 ##################################################
 
-PROBLEMS = [
+STABLE_PROBLEMS = [
     test_block,
-    test_cup,
     test_pour,
-    test_shelves, # TODO(caelan): currently broken due to collision_buffer
-    test_clutter, # TODO(caelan): currently broken due to collision_buffer
+    test_shelves,  # TODO(caelan): currently broken due to collision_buffer (maybe not?)
     test_push,
     test_holding,
-    test_cook,
     test_stacking,
     test_stack_pour,
     test_stir,
-    test_scoop,
-    test_push_pour,
     test_coffee,
 ]
+
+BROKEN_PROBLEMS = [
+    # TODO(caelan): debug legacy formulation
+    test_cup,
+    test_clutter,  # TODO(caelan): currently broken due to collision_buffer
+    test_cook,  # TODO(caelan): RuntimeError: Preimage fact ('cooked', greenblock) is not achievable!
+    test_scoop,
+    test_push_pour,
+]
+
+PROBLEMS = STABLE_PROBLEMS # + BROKEN_PROBLEMS

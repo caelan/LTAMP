@@ -6,7 +6,6 @@ from images.common import CUPS, BOWLS
 from learn_tools.collectors.common import INFEASIBLE, get_contained_beads, fill_with_beads, InitialRanges, \
     create_table_bodies, randomize_dynamics, sample_norm, MAX_BEADS, \
     dump_ranges, MAX_SPILLED, MAX_TRANSLATION, create_beads, sample_bead_parameters
-from learn_tools.retired.estimate_capacity import compute_num_bowl_beads
 from learn_tools.learner import Collector, PLANNING_FAILURE, FAILURE, SUCCESS, DYNAMICS, REAL_PREFIX, rescale, THRESHOLD
 from pddlstream.algorithms.constraints import PlanConstraints, WILD as X
 from pddlstream.language.statistics import safe_ratio

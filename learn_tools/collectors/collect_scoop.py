@@ -11,7 +11,6 @@ from learn_tools.collectors.common import INFEASIBLE, get_contained_beads, fill_
     sample_bead_parameters
 from learn_tools.collectors.collect_pour import piecewise_score
 from learn_tools.learner import Collector, PLANNING_FAILURE, FAILURE, SUCCESS, DYNAMICS, rescale, THRESHOLD
-from learn_tools.retired.estimate_capacity import compute_num_bowl_beads
 from pddlstream.algorithms.constraints import PlanConstraints, WILD as X
 from pddlstream.utils import find_unique
 from perception_tools.common import create_name

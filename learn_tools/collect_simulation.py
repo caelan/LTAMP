@@ -430,7 +430,7 @@ def main():
     parser.add_argument('-f', '--fn', default=TRAINING,
                         help='The parameter function to use.')
     parser.add_argument('-n', '--num', type=int, default=10000,
-                        help='The number of samples to collect')
+                        help='The number of samples to collect.')
     parser.add_argument('-p', '--problem', required=True,
                         choices=sorted(SKILL_COLLECTORS.keys()),
                         help='The name of the skill to learn.')

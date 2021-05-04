@@ -24,8 +24,6 @@ from control_tools.execution import execute_plan
 from pybullet_tools.utils import wait_for_user, has_gui, VideoSaver
 from learn_tools.common import DATE_FORMAT
 
-from pddlstream.utils import user_input
-
 
 def main():
     # TODO: link_from_name is slow (see python -m plan_tools.run_simulation -p test_cook)

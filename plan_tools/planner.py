@@ -350,7 +350,7 @@ def get_pddlstream(world, debug=False, collisions=True, teleport=False, paramete
 
 ##################################################
 
-def plan_actions(world, unit_costs=True, max_time=300, verbose=True, **kwargs):
+def plan_actions(world, use_constraints=False, unit_costs=True, max_time=300, verbose=True, **kwargs):
     # TODO: return multiple grasps instead of one
     pr = cProfile.Profile()
     pr.enable()
@@ -375,11 +375,13 @@ def plan_actions(world, unit_costs=True, max_time=300, verbose=True, **kwargs):
             # TODO: these should automatically be last...
             'sample-motion': StreamInfo(p_success=1, overhead=100),
         }
+        # TODO: RuntimeError: Preimage fact ('order', n0, t0) is not achievable!
+        constraints = world.task.constraints if use_constraints else PlanConstraints()
         solution = solve_focused(problem, planner='ff-wastar1', max_time=max_time, unit_costs=unit_costs,
                                  unit_efforts=True, effort_weight=1, stream_info=stream_info,
                                  # TODO: bug when max_skeletons=None and effort_weight != None
                                  max_skeletons=None, bind=True, max_failures=0,
-                                 search_sample_ratio=0, constraints=world.task.constraints,
+                                 search_sample_ratio=0, constraints=constraints,
                                  verbose=verbose, debug=False)
         #solution = solve_incremental(problem, unit_costs=unit_costs, verbose=True)
         print_solution(solution)

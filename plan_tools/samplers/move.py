@@ -37,7 +37,7 @@ def plan_water_motion(body, joints, end_conf, attachment, obstacles=None, attach
         #    print(q, violation)
         #    wait_for_user()
         return violation
-    invalid_fn = lambda q: water_test(q) or collision_fn(q)
+    invalid_fn = lambda q, **kwargs: water_test(q) or collision_fn(q, **kwargs)
     start_conf = get_joint_positions(body, joints)
     if not check_initial_end(start_conf, end_conf, invalid_fn):
         return None
