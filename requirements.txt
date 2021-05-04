@@ -1,5 +1,10 @@
-pyquaternion
+#pyquaternion
 numpy
 scipy
 sklearn
 pybullet
+#pyusb
+#psutil
+GPy
+#torch
+#gpytorch
