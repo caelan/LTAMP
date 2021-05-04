@@ -15,7 +15,7 @@ import numpy as np
 
 from control_tools.execution import execute_plan, get_arm_prefix
 from perception_tools.common import get_body_urdf, get_type
-from plan_tools.pr2_problems import HEAD_CONF, LEFT_ARM_CONF, STOVE_NAME, PLACEMAT_NAME, BUTTON_NAME, PROBLEMS
+from plan_tools.retired.pr2_problems import HEAD_CONF, LEFT_ARM_CONF, STOVE_NAME, PLACEMAT_NAME, BUTTON_NAME, PROBLEMS
 from plan_tools.simulated_problems import STOVE_POSITION, BUTTON_POSITION, PLACEMAT_POSITION, TORSO_POSITION
 from plan_tools.ros_world import ROSWorld
 from plan_tools.planner import plan_actions, PlanningWorld
@@ -64,7 +64,7 @@ def add_table_surfaces(world):
     with ClientSaver(world.perception.client):
         for name, local_pose in initial_poses.items():
             world_pose = multiply(table_pose, local_pose)
-            from perception_tools.ros_perception import BodyInfo
+            from perception_tools.retired.ros_perception import BodyInfo
             world.perception.surfaces.append(BodyInfo(name, None, world_pose, name))
 
 ##################################################

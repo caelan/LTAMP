@@ -8,7 +8,7 @@ from perception_tools.pb_perception import PBPerception
 from perception_tools.common import get_models_path
 from plan_tools.common import PR2_URDF
 from pybullet_tools.utils import HideOutput, ClientSaver, get_link_pose, link_from_name, set_pose, invert, \
-    load_pybullet, disconnect, LockRenderer, get_bodies, remove_body, get_constraints, remove_constraint, \
+    load_pybullet, disconnect, get_constraints, remove_constraint, \
     remove_all_debug, reset_simulation, connect
 
 
@@ -37,8 +37,8 @@ class ROSWorld(object):
             self.controller = PBController(self)
             self.alternate_controller = None
         else:
-            from perception_tools.ros_perception import ROSPerception
-            from control_tools.ros_controller import ROSController
+            from perception_tools.retired.ros_perception import ROSPerception
+            from control_tools.retired.ros_controller import ROSController
             self.perception = ROSPerception(self)
             self.controller = ROSController(self)
             self.alternate_controller = PBController(self)

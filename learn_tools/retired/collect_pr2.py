@@ -20,7 +20,6 @@ import roslaunch
 import os
 import math
 import datetime
-import random
 import rospy
 #np.set_printoptions(precision=3, threshold=3, edgeitems=1, suppress=True) #, linewidth=1000)
 
@@ -33,41 +32,38 @@ from pddlstream.algorithms.constraints import PlanConstraints, WILD as X
 
 from control_tools.execution import execute_plan, get_arm_prefix
 from perception_tools.common import get_type, create_name, get_body_urdf
-from plan_tools.common import LEFT_ARM, RIGHT_ARM, COFFEE, SUGAR, MODEL_MASSES, \
-    SCALE_TYPE, KG_PER_OZ, is_obj_type, SPOON_CAPACITIES, MATERIALS, SPOON_CAPACITIES_OZ, SPOONS
-from plan_tools.pr2_problems import get_spoon_init_holding
+from plan_tools.common import LEFT_ARM, COFFEE, SUGAR, MODEL_MASSES, \
+    SCALE_TYPE, KG_PER_OZ, is_obj_type, SPOON_CAPACITIES, MATERIALS, SPOONS
+from plan_tools.retired.pr2_problems import get_spoon_init_holding
 from plan_tools.ros_world import ROSWorld
 from plan_tools.planner import plan_actions, PlanningWorld, Task
 from plan_tools.visualization import draw_forward_reachability, draw_names
 from learn_tools.collectors.collect_push import POSE2D_RANGE, draw_push_goal
-from learn_tools.learner import RANDOM, TRAINING, DESIGNED, DATA_DIRECTORY, SEPARATOR, LEARNER_DIRECTORY, SKILL
+from learn_tools.learner import TRAINING, SEPARATOR, LEARNER_DIRECTORY, SKILL
 from learn_tools.collect_simulation import get_parameter_fns, SKILL_COLLECTORS, test_validity, get_data_path, write_results
-from learn_tools.active_learner import BEST, STRADDLE, VARIANCE, ActiveLearner
-from learn_tools.active_gp import STRADDLE_GP, MAXVAR_GP
+from learn_tools.active_learner import BEST, STRADDLE, ActiveLearner
 from learn_tools.learnable_skill import load_data
 from plan_tools.samplers.scoop import get_scoop_feature
 from plan_tools.samplers.push import get_push_feature
 from plan_tools.samplers.pour import get_pour_feature
 from learn_tools.common import DATE_FORMAT
-from learn_tools.select_active import optimize_feature, query_from_name
+from learn_tools.select_active import optimize_feature
 
 from images.bowls.dimensions import BOWL
 from images.cups.dimensions import CUP
 from images.common import CUPS, BOWLS
 
 # for pickling
-from learn_tools.analyze_experiment import get_label, Algorithm
+from learn_tools.analyze_experiment import get_label
 
-from pybullet_tools.utils import ClientSaver, user_input, elapsed_time, get_pose, point_from_pose, \
-    get_distance, quat_from_pose, quat_angle_between, get_point, load_pybullet, set_point, stable_z, Point, \
-    wait_for_user, remove_all_debug, set_camera_pose, INF, approximate_as_prism, draw_aabb, create_box, get_aabb_center, \
-    get_aabb_extent, aabb_from_points, apply_affine, set_point, Pose, Point, set_pose, multiply, invert, draw_pose, \
-    get_euler, set_euler, Euler, set_caching, randomize, inf_generator, read_pickle, HideOutput, WorldSaver, ensure_dir, clip
-from pybullet_tools.pr2_utils import get_other_arm
+from pybullet_tools.utils import ClientSaver, elapsed_time, get_pose, point_from_pose, \
+    get_distance, quat_from_pose, quat_angle_between, get_point, load_pybullet, stable_z, wait_for_user, remove_all_debug, set_camera_pose, INF, \
+    draw_aabb, create_box, get_aabb_center, \
+    get_aabb_extent, aabb_from_points, Pose, Point, set_pose, multiply, get_euler, set_euler, randomize, read_pickle, HideOutput, WorldSaver, ensure_dir, clip
 
 from learn_tools.run_active import SCOOP_TEST_DATASETS, evaluate_confusions # TEST_DATASETS
-from plan_tools.run_pr2 import review_plan, get_task_fn, add_holding, move_to_initial_config
-from utils.scale_reader import read_scales, ARIADNE_BACK_USB, ARIADNE_FRONT_USB
+from plan_tools.retired.run_pr2 import get_task_fn, add_holding, move_to_initial_config
+from retired.utils.scale_reader import read_scales, ARIADNE_BACK_USB, ARIADNE_FRONT_USB
 
 
 TEST_BOWLS = {'red_speckled_bowl', 'yellow_bowl', 'tan_bowl', 'purple_bowl', 'small_green_bowl'}
