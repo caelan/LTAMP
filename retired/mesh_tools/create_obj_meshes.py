@@ -13,7 +13,7 @@ import subprocess
 # TODO: amber uses python2 only
 from pybullet_tools.transformations import rotation_matrix, translation_matrix
 from pybullet_tools.utils import Mesh, read, write, safe_remove
-from perception_tools.mesh_tools.create_off_meshes import rotation, PCD_TEMPLATE
+from retired.mesh_tools.create_off_meshes import rotation, PCD_TEMPLATE
 
 from scipy.spatial import ConvexHull
 
