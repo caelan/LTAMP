@@ -9,7 +9,7 @@ Learning for Task and Motion Planning (LTAMP)
 
 Robotic multi-step manipulation planning for a [PR2](http://wiki.ros.org/Robots/PR2) robot using both learned and engineered models of primitive actions.
 
-* Learned: pour,push,scoop,stir
+* Learned: pour, push, scoop, stir
 * Engineered: move, pick, place, press
 
 <!--## Gallery-->
