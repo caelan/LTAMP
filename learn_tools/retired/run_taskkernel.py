@@ -7,10 +7,8 @@ import numpy as np
 from learn_tools.active_gp import ActiveGP, POUR_MLP_HYPERPARAM_3000, SCOOP_MLP_HYPERPARAM_3000
 from learn_tools.collect_simulation import start_task, complete_task, get_parameter_result
 from learn_tools.learnable_skill import load_data
-from learn_tools.learner import FAILURE
-from learn_tools.learner import FEATURE, PARAMETER, SCORE
-from learn_tools.learner import get_trial_parameter_fn
-from learn_tools.run_sample import get_data_dir, sample_task_with_seed
+from learn_tools.learner import FAILURE, SCORE, get_trial_parameter_fn
+from learn_tools.retired.run_sample import get_data_dir, sample_task_with_seed
 from learn_tools.uncertain_learner import DIVERSE, DIVERSELK, SAMPLE_STRATEGIES, BESTPROB
 from pddlstream.utils import get_python_version, mkdir
 from perception_tools.common import create_name

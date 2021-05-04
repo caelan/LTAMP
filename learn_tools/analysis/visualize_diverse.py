@@ -1,12 +1,13 @@
-from learn_tools.collect_simulation import get_parameter_result, start_task, complete_task
+from learn_tools.collect_simulation import start_task
 import argparse
 import os
 
-from pybullet_tools.utils import write_pickle, read_pickle
-from pddlstream.utils import get_python_version, mkdir, elapsed_time
-from learn_tools.run_sample import evaluate_samples, Result, sample_task_with_seed
-from learn_tools.learnable_skill import LearnableSkill, load_data
-from learn_tools.uncertain_learner import UNIFORM, DIVERSE, ADAPTIVE
+from pybullet_tools.utils import read_pickle
+from pddlstream.utils import get_python_version
+from learn_tools.retired.run_sample import evaluate_samples, sample_task_with_seed
+from learn_tools.learnable_skill import load_data
+from learn_tools.uncertain_learner import UNIFORM
+
 
 def main(skill='pour'):
     parser = argparse.ArgumentParser()
