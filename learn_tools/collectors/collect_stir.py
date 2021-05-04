@@ -17,11 +17,11 @@ from plan_tools.planner import Task
 from plan_tools.simulated_problems import update_world, CAMERA_OPTICAL_FRAME, KINECT_INTRINSICS, WIDTH, HEIGHT, \
     TABLE_NAME, TABLE_POSE
 from plan_tools.samplers.stir import get_stir_feature, get_stir_gen_fn, STIR_PARAMETER_FNS, STIR_FEATURES
-from pybullet_tools.pr2_utils import get_pr2_field_of_view, get_view_aabb, pixel_from_ray, clip_pixel
+from pybullet_tools.pr2_utils import get_pr2_field_of_view, get_view_aabb, pixel_from_ray
 from pybullet_tools.utils import ClientSaver, get_distance, point_from_pose, quat_angle_between, quat_from_pose, \
     get_point, get_image, get_link_pose, link_from_name, approximate_as_cylinder, \
     INF, save_image, get_link_subtree, clone_body, image_from_segmented, spaced_colors, get_bodies, \
-    tform_point, unit_pose, unit_quat, wait_for_user, get_joint_reaction_force, dump_body, GRAVITY, set_point
+    tform_point, unit_pose, unit_quat, wait_for_user, get_joint_reaction_force, dump_body, GRAVITY, set_point, clip_pixel
 
 
 def create_gripper(robot, arm):

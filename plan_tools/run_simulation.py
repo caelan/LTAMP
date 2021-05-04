@@ -56,7 +56,6 @@ def main():
     if not args.disable_drawing:
         draw_names(sim_world)
         draw_forward_reachability(sim_world, task.arms)
-        wait_for_user()
 
     planning_world = PlanningWorld(task, visualize=args.visualize_planning)
     planning_world.load(sim_world)
