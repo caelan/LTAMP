@@ -12,9 +12,13 @@ Robotic multi-step manipulation planning for a [PR2](http://wiki.ros.org/Robots/
 * Learned: pour,push,scoop,stir
 * Engineered: move, pick, place, press
 
-<!--## Citation-->
+<!--## Gallery-->
+[<img src="https://img.youtube.com/vi/VZmfC_RWlps/0.jpg" height="200">](https://youtu.be/VZmfC_RWlps) &emsp;
+[<img src="https://img.youtube.com/vi/mDG69aGqGsA/0.jpg" height="200">](https://youtu.be/mDG69aGqGsA) &emsp;
+[<img src="https://img.youtube.com/vi/hz1EC8TkaZs/0.jpg" height="200">](https://youtu.be/hz1EC8TkaZs)
 
 ## References
+<!--## Citation-->
 
 Zi Wang*, Caelan Reed Garrett*, Leslie Pack Kaelbling, Tomás Lozano-Pérez. 
 Learning compositional models of robot skills for task and motion planning, 
@@ -54,6 +58,8 @@ LTAMP$ control_tools/ik/$ python setup.py build
 
 See [README](control_tools/ik/README.md) for details about using the existing and generating new IK solvers.
 
+<!--### Real World-->
+
 ---
 
 ## Examples
@@ -81,6 +87,9 @@ optional arguments:
 
 ```
 
+[<img src="https://img.youtube.com/vi/t7D3elW_05E/0.jpg" height="200">](https://youtu.be/t7D3elW_05E) &emsp;
+[<img src="https://img.youtube.com/vi/0CetLZZ1mCM/0.jpg" height="200">](https://youtu.be/0CetLZZ1mCM)
+
 ### Data Collection
 
 [collect_simulation.py](learn_tools/collect_simulation.py): collects manipulation-primitive data in simulation
@@ -98,9 +107,32 @@ optional arguments:
   -v, --visualize       When enabled, visualizes execution.
 ```
 
-### Learning
+[<img src="https://img.youtube.com/vi/IqocaU8iMXg/0.jpg" height="200">](https://youtu.be/IqocaU8iMXg) &emsp;
+[<img src="https://img.youtube.com/vi/GKYrYT0Q5yE/0.jpg" height="200">](https://youtu.be/GKYrYT0Q5yE)
 
-TBD
+<!--### Learning
+
+```
+LTAMP$ python -m learn_tools.run_active
+LTAMP$ python -m learn_tools.run_pr2_active
+```-->
+
+
+<!--### Other
+
+```
+LTAMP$ python -m data.enunerate_trials
+LTAMP$ python -m learn_tools.analyze_experiment
+LTAMP$ python -m learn_tools.analyze.visualize_diverse
+LTAMP$ python -m learn_tools.analysis.visualize_pours
+LTAMP$ python -m learn_tools.retired.run_taskkernel
+LTAMP$ python -m learn_tools.retired.run_sample
+LTAMP$ python -m learn_tools.retired.collect_pr2
+LTAMP$ python -m learn_tools.retired.unify_pr2_trials
+LTAMP$ python -m plan_tools.retired.run_pr2
+LTAMP$ python -m retired.mesh_tools.run_mesb
+LTAMP$ python -m retired.utils.scale_reader
+```-->
 
 ---
 
