@@ -8,7 +8,7 @@ setup(name='lis_ltamp',
       version='2.0.0',
       description='LTAMP Utilities',
       author='MIT LIS',
-      author_email='ziw@mit.edu',
+      author_email='caelan@mit.edu',
       url='none',
       packages=[
             'learn_tools',
