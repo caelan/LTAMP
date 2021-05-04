@@ -1,8 +1,8 @@
 import numpy as np
 import os
 
-from images.bowls.dimensions import BOWL, BOWL_PROPERTIES
-from images.cups.dimensions import CUP, CUP_PROPERTIES
+from dimensions.bowls.dimensions import BOWL, BOWL_PROPERTIES
+from dimensions.cups.dimensions import CUP, CUP_PROPERTIES
 from perception_tools.common import get_models_path
 from pybullet_tools.utils import create_obj, apply_alpha
 

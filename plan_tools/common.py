@@ -7,8 +7,8 @@ import numpy as np
 from collections import namedtuple
 
 from control_tools.common import PR2_JOINT_SAFETY_LIMITS
-from images.common import load_cup_bowl_obj
-from images.cups.dimensions import OLIVE_CUPS
+from dimensions.common import load_cup_bowl_obj
+from dimensions.cups.dimensions import OLIVE_CUPS
 from perception_tools.common import get_type, get_body_urdf, get_models_path
 from pybullet_tools.ikfast.pr2.ik import IK_FRAME as IK_FRAMES
 from pybullet_tools.pr2_utils import get_group_joints, gripper_from_arm, get_arm_joints

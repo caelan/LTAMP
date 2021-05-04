@@ -12,10 +12,10 @@ from perception_tools.common import get_models_path
 from pybullet_tools.utils import ensure_dir, connect, create_obj, approximate_as_cylinder, wait_for_user, remove_body
 from retired.mesh_tools.create_off_meshes import draw_curvature
 from retired.mesh_tools.create_obj_meshes import make_revolute_chunks, write_obj, pcd_from_mesh
-from images.common import normalize_rgb, approximate_bowl, SCALE, OBJECT_PROPERTIES, MODELS_TEMPLATE, \
+from dimensions.common import normalize_rgb, approximate_bowl, SCALE, OBJECT_PROPERTIES, MODELS_TEMPLATE, \
     SUFFIX_TEMPLATE, OBJ_TEMPLATE, PCD_TEMPLATE
-from images.bowls.dimensions import BOWL
-from images.cups.dimensions import CUP
+from dimensions.bowls.dimensions import BOWL
+from dimensions.cups.dimensions import CUP
 
 
 def create_meshes(ty, draw=False, visualize=False):

@@ -49,9 +49,9 @@ from plan_tools.samplers.pour import get_pour_feature
 from learn_tools.common import DATE_FORMAT
 from learn_tools.select_active import optimize_feature
 
-from images.bowls.dimensions import BOWL
-from images.cups.dimensions import CUP
-from images.common import CUPS, BOWLS
+from dimensions.bowls.dimensions import BOWL
+from dimensions.cups.dimensions import CUP
+from dimensions.common import CUPS, BOWLS
 
 # for pickling
 from learn_tools.analyze_experiment import get_label

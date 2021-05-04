@@ -1,6 +1,6 @@
 from __future__ import print_function
 
-from images.bowls.dimensions import BowlDimensions
+from dimensions.bowls.dimensions import BowlDimensions
 
 CUP = 'cup'
 

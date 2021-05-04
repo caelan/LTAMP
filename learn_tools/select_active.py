@@ -4,7 +4,7 @@ import time
 from itertools import product, islice
 from random import choice
 
-from images.common import BOWLS, CUPS
+from dimensions.common import BOWLS, CUPS
 from learn_tools.active_gp import STRADDLE_ACTIVE_GP, VAR_ACTIVE_GP, BATCH_MAXVAR_GP, BATCH_STRADDLE_GP
 from learn_tools.active_rf import BATCH_STRADDLE_RF, BATCH_MAXVAR_RF
 from learn_tools.active_learner import x_from_context_sample, STRADDLE, VARIANCE

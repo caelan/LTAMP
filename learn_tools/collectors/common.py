@@ -4,7 +4,7 @@ import time
 
 import numpy as np
 
-from images.common import get_properties
+from dimensions.common import get_properties
 from plan_tools.common import randomize_body, get_type, get_liquid_quat, load_body
 from plan_tools.samplers.grasp import SPOON_DIAMETERS, SPOON_LENGTHS
 from plan_tools.simulated_problems import TABLE_NAME, Z_EPSILON, add_table

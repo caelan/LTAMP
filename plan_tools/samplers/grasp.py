@@ -11,7 +11,7 @@ from pybullet_tools.pr2_utils import get_gripper_joints, get_top_grasps, get_sid
     get_top_cylinder_grasps, get_edge_cylinder_grasps, close_until_collision
 from pybullet_tools.utils import get_unit_vector, multiply, Pose, link_from_name, Attachment, get_link_pose, set_pose, \
     approximate_as_prism, Euler, Point, BodySaver, INF
-from images.cups.dimensions import OLIVE_CUPS, THREE_D_CUPS
+from dimensions.cups.dimensions import OLIVE_CUPS, THREE_D_CUPS
 
 TOP_DIRECTION = get_unit_vector([1, 0, 0])
 

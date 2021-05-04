@@ -3,8 +3,8 @@ import numpy as np
 
 from collections import defaultdict
 
-from images.common import BOWLS
-from images.bowls.dimensions import BOWL, BOWL_PROPERTIES
+from dimensions.common import BOWLS
+from dimensions.bowls.dimensions import BOWL, BOWL_PROPERTIES
 from learn_tools.collectors.common import INFEASIBLE, get_contained_beads, fill_with_beads, InitialRanges, \
     create_table_bodies, randomize_dynamics, sample_norm, MAX_BEADS, \
     dump_ranges, MAX_SPILLED, MAX_TRANSLATION, estimate_spoon_capacity, create_beads, pour_beads, \

@@ -2,7 +2,7 @@ import random
 
 import numpy as np
 
-from images.common import CUPS, BOWLS
+from dimensions.common import CUPS, BOWLS
 from learn_tools.collectors.common import INFEASIBLE, get_contained_beads, fill_with_beads, InitialRanges, \
     create_table_bodies, randomize_dynamics, sample_norm, MAX_BEADS, \
     dump_ranges, MAX_SPILLED, MAX_TRANSLATION, create_beads, sample_bead_parameters

@@ -28,7 +28,7 @@ from learn_tools.learner import FAILURE, SUCCESS, DEFAULT_INTERVAL, rescale, inc
 from learn_tools.learnable_skill import read_data
 #from learn_tools.collect_simulation import SKILL_COLLECTORS
 from learn_tools.collectors.collect_pour import compute_fraction_filled, pour_score
-from images.common import load_cup_bowl
+from dimensions.common import load_cup_bowl
 
 #BACKGROUND_COLOR = WHITE
 BACKGROUND_COLOR = [0.9, 0.9, 1.0] # 229, 229, 255

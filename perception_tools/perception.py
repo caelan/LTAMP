@@ -4,7 +4,7 @@
 
 from pybullet_tools.utils import get_pose, ClientSaver, load_pybullet, set_pose, HideOutput
 from perception_tools.common import get_body_urdf, get_type
-from images.common import load_cup_bowl
+from dimensions.common import load_cup_bowl
 from collections import OrderedDict
 
 class Perception(object):
