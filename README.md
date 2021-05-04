@@ -4,6 +4,7 @@
 # LTAMP
 
 Learning for Task and Motion Planning (LTAMP)
+<!--https://github.mit.edu/Learning-and-Intelligent-Systems/ltamp_pr2-->
 
 ## Overview
 
@@ -16,6 +17,8 @@ Robotic multi-step manipulation planning for a [PR2](http://wiki.ros.org/Robots/
 [<img src="https://img.youtube.com/vi/VZmfC_RWlps/0.jpg" height="200">](https://youtu.be/VZmfC_RWlps)
 [<img src="https://img.youtube.com/vi/mDG69aGqGsA/0.jpg" height="200">](https://youtu.be/mDG69aGqGsA)
 [<img src="https://img.youtube.com/vi/hz1EC8TkaZs/0.jpg" height="200">](https://youtu.be/hz1EC8TkaZs)
+
+<!--[YouTube Playlist](https://youtube.com/playlist?list=PLNpZKR7uv5AQvqScpGNuI3TraaJk7jL2x)-->
 
 ## References
 <!--## Citation-->
