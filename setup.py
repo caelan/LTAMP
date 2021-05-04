@@ -10,6 +10,14 @@ setup(name='lis_ltamp',
       author='MIT LIS',
       author_email='ziw@mit.edu',
       url='none',
-      packages=['learn_tools', 'perception_tools', 'plan_tools', 'control_tools','msg'],
+      packages=[
+            'learn_tools',
+            'perception_tools',
+            'plan_tools',
+            'control_tools',
+            #'msg',
+      ],
      )
 #setup(**setup_args)
+
+# python setup.py build
